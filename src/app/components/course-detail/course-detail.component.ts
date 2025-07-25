@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Course } from '../../course.model';
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [NgIf],
+  imports: [CommonModule],
   templateUrl: './course-detail.component.html',
 })
 export class CourseDetailComponent {

@@ -3,13 +3,7 @@ import { Course } from '../../course.model';
 import { NgFor, SlicePipe } from '@angular/common';
 interface Enrolls{
   
-  course:{
-
-    courseId:number,
-    title:string,
-    description:string,
-    contentUrl:string
-  } ,
+  course:Course ,
   enrollmentId:number,
   progress:number
 
@@ -21,10 +15,10 @@ interface Enrolls{
   templateUrl: './course-list.component.html',
 })
 export class CourseListComponent {
-  @Input() courses: Enrolls[] = [];
+  @Input() courses: Course[] = [];
   @Output() selectCourse = new EventEmitter<Course>();
 
-  onSelect(course: Enrolls) {
-    this.selectCourse.emit(course.course);
+  onSelect(course: Course) {
+    this.selectCourse.emit(course);
   }
 }

@@ -1,10 +1,38 @@
-<div *ngIf="course; else noSelection">
-  <h2>{{ course.title }}</h2>
-  <p>{{ course.description }}</p>
-</div>
-
-<ng-template #noSelection>
-  <div class="text-muted">
-    <h4>Select a course to view details</h4>
+<div *ngIf="course" class="p-3">
+  <!-- Title + Link -->
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h4 class="mb-0">{{ course.title }}</h4>
+    <a [href]="course.contentUrl" class="btn btn-sm btn-outline-primary" target="_blank">
+      Open Course
+    </a>
   </div>
-</ng-template>
+
+  <!-- Progress -->
+  <div class="mb-3">
+    <label class="fw-semibold">Progress</label>
+    <div class="progress" style="height: 20px;">
+      <div 
+        class="progress-bar bg-success" 
+        [style.width.%]="course.progress" 
+        role="progressbar">
+        {{ course.progress }}%
+      </div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <p class="text-muted mt-3">{{ course.description }}</p>
+
+  <!-- Assignments List -->
+  <div *ngIf="course.assignments.length > 0" class="mt-4">
+    <h5>Assignments</h5>
+    <ul class="list-group">
+      <li *ngFor="let a of course.assignments" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>#{{ a.assessmentId }}</strong> — {{ a.type }}
+        </div>
+        <span class="badge bg-primary rounded-pill">Max Score: {{ a.maxScore }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

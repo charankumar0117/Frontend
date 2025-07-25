@@ -4,9 +4,9 @@
     <div class="col-md-4 bg-white border-end p-0">
       <div class="p-3 border-bottom bg-light fw-bold">Courses</div>
       <div class="scrollable-left px-2">
-        @if(listOfCourses){
+        @if(courses){
         <app-course-list 
-          [courses]="listOfCourses" 
+          [courses]="courses" 
           (selectCourse)="onCourseSelected($event)">
         </app-course-list>
       }
