@@ -4,7 +4,6 @@ export interface Course {
     description:string,
     contentUrl:string,
     progress: number,
-    assignments: Assignment[],
 }
 export interface Assignment {
     assessmentId: number;

@@ -41,12 +41,11 @@ export class AppComponent {
     });
 
     const enrollments$ = this.http.get<Enrolls[]>(`/student/enrollments/by-student/1`, { headers });
-    const assessments$ = this.http.get<Assements[]>(`/api/assessments/by-course/1`, { headers });
+    
 
-    forkJoin([enrollments$, assessments$]).subscribe({
-      next: ([enrollsData, assessmentsData]) => {
+    forkJoin([enrollments$]).subscribe({
+      next: ([enrollsData]) => {
         this.enrolls = enrollsData;
-        this.assignments=assessmentsData;
         
 
         // ✅ Now execute whatever logic you want *after both are fetched*
@@ -59,7 +58,6 @@ export class AppComponent {
   }
 
   handleAfterHttpComplete() {
-    console.log(this.assignments);
     console.log(this.enrolls)
     this.courses=[]
     
@@ -67,13 +65,14 @@ export class AppComponent {
     this.enrolls?.forEach((data)=>{
         this.courses!.push({...(data.course),
           progress:data.progress,
-          assignments:[]})
+        })
     })
 
     console.log(this.courses)
 
 
   }
+  
 
   onCourseSelected(course: Course) {
     this.selectedCourse = course;
