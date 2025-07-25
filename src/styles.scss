@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* Left Scrollable Area */
+.scrollable-left {
+  height: calc(100vh - 58px); /* Adjust for header height */
+  overflow-y: auto;
+}
+
+/* Right Scrollable Area */
+.scrollable-right {
+  height: calc(100vh - 58px); /* Adjust for header height */
+  overflow-y: auto;
+}
+
+/* Scrollbar Styling (optional) */
+.scrollable-left::-webkit-scrollbar,
+.scrollable-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-left::-webkit-scrollbar-thumb,
+.scrollable-right::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.scrollable-left::-webkit-scrollbar-track,
+.scrollable-right::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}

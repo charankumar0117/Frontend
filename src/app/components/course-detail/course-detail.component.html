@@ -1,0 +1,10 @@
+<div *ngIf="course; else noSelection">
+  <h2>{{ course.title }}</h2>
+  <p>{{ course.description }}</p>
+</div>
+
+<ng-template #noSelection>
+  <div class="text-muted">
+    <h4>Select a course to view details</h4>
+  </div>
+</ng-template>
