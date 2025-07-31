@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 class="mb-3">Add Assignment</h3>
+
+  <form (ngSubmit)="submitAssignment()">
+
+    <div class="mb-3">
+      <label class="form-label">Max Score</label>
+      <input type="number" class="form-control" [(ngModel)]="maxScore" name="maxScore" required />
+    </div>
+
+    
+    <button type="button" class="btn btn-outline-primary ms-2" (click)="openQuizPopup()">Add Quiz</button>
+  </form>
+
+  <app-assignment-list [courseId]="courseId"></app-assignment-list>
+
+  <div class="modal-backdrop" *ngIf="showQuizPopup" (click)="closeQuizPopup()"></div>
+  <div class="quiz-popup" *ngIf="showQuizPopup">
+    <app-add-quiz (quizSubmit)="getQuiz($event)"></app-add-quiz>
+    <button class="btn btn-danger mt-2" (click)="closeQuizPopup()">Close Quiz</button>
+  </div>
+</div>

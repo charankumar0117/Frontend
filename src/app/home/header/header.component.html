@@ -1,0 +1,43 @@
+<header class="header bg-color-red">
+  
+  <ul class="nav nav-pills">
+    
+    <li class="nav-item">
+      <a class="nav-link"   (click)="home()">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="courses" routerLinkActive="active" aria-current="page">Courses</a>
+    </li>
+  
+    @if(role!='INSTRUCTOR'){
+    <li class="nav-item">
+      <a class="nav-link" routerLink="enrolls" routerLinkActive="active">My Enrolls</a>
+    </li>
+  }
+
+  @if(role!='INSTRUCTOR'){
+    <li class="nav-item">
+      <a class="nav-link" routerLink="submissions" routerLinkActive="active">Submissions</a>
+    </li>
+  }
+
+  @if(role=="INSTRUCTOR"){
+
+  <li class="nav-item">
+    <a class="nav-link" routerLink="courseByAdmin" routerLinkActive="active">My Courses</a>
+  </li>
+}
+    <li class="nav-item">
+      <a class="nav-link" routerLink="profile" routerLinkActive="active">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+
+     
+     
+
+
+  </ul>
+</header>

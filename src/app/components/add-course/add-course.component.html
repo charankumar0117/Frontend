@@ -1,0 +1,47 @@
+<div class="card p-3">
+  <h5>Add New Course</h5>
+
+  <form #courseForm="ngForm" (ngSubmit)="addCourse(courseForm)" novalidate>
+    <input
+      name="title"
+      [(ngModel)]="newCourse.title"
+      class="form-control mb-2"
+      placeholder="Course Title"
+      required
+      #title="ngModel"
+    />
+    <div *ngIf="title.invalid && title.touched" class="text-danger">Title is required</div>
+
+    <textarea
+      name="description"
+      [(ngModel)]="newCourse.description"
+      class="form-control mb-2"
+      placeholder="Course Description"
+      required
+      #description="ngModel"
+    ></textarea>
+    <div *ngIf="description.invalid && description.touched" class="text-danger">Description is required</div>
+
+    <input
+      name="contentUrl"
+      [(ngModel)]="newCourse.contentUrl"
+      type="url"
+      class="form-control mb-2"
+      placeholder="Content URL"
+      required
+      pattern="https?://.+"
+      #contentUrl="ngModel"
+    />
+    <div *ngIf="contentUrl.errors?.['required'] && contentUrl.touched" class="text-danger">
+      Content URL is required
+    </div>
+    <div *ngIf="contentUrl.errors?.['pattern'] && contentUrl.touched" class="text-danger">
+      Enter a valid HTTP/HTTPS URL
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-secondary me-2" (click)="cancel()">Cancel</button>
+      <button type="submit" class="btn btn-success" [disabled]="courseForm.invalid">Add Course</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+@if (listOfCourses) {
+     <div class="course-container">
+       @for (item of listOfCourses; track $index) {
+         <div class="course-card">
+           <app-cards [courseData]="item"></app-cards>
+         </div>
+       }
+     </div>
+   } @else {
+     <p>No courses available.</p>
+   }
+   

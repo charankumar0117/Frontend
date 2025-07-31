@@ -1,0 +1,38 @@
+<div class="quiz-container">
+    <h2>Quiz App</h2>
+  
+    <div class="question">
+      <p>{{ currentQuestion.question }}</p>
+    </div>
+  
+    <div class="options">
+      <div *ngFor="let option of currentQuestion.options; let i = index" class="option">
+        <button
+          [ngClass]="{ selected: selectedOption === i }"
+          (click)="checkAnswer(i)"
+          [disabled]="isAnswered"
+        >
+          {{ option }}
+        </button>
+      </div>
+    </div>
+  
+    <div *ngIf="isAnswered" class="result">
+      <p [ngClass]="{ correct: selectedOption === currentQuestion.correctAnswerIndex, incorrect: selectedOption !== currentQuestion.correctAnswerIndex }">
+        {{ selectedOption === currentQuestion.correctAnswerIndex ? 'Correct!' : 'Incorrect!' }}
+      </p>
+  
+      <button *ngIf="currentQuestionIndex < questions.length - 1" (click)="nextQuestion()">Next Question</button>
+      <button *ngIf="currentQuestionIndex === questions.length - 1" (click)="restartQuiz()">Restart Quiz</button>
+    </div>
+  
+    <div class="score">
+      <p>Score: {{ score }} / {{ questions.length }}</p>
+    </div>
+
+    <div class="score">
+        <p>Score: {{ score }} / {{ questions.length }} ({{ percentage }}%)</p>
+      </div>
+      
+  </div>
+  

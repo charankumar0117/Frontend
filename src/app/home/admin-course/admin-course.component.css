@@ -1,0 +1,13 @@
+.scrollable-left {
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.scrollable-left::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollable-left::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

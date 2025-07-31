@@ -1,0 +1,14 @@
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{courseData.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">{{courseData.description}}</p>
+      @if (role==="STUDENT") {
+      <a  (click)="enroll(courseData.courseId)"  class="card-link">Enroll</a>
+      }
+      
+      
+
+    </div>
+  </div>

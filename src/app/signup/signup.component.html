@@ -1,0 +1,38 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <div class="signup-title">Create Account</div>
+    <div class="signup-subtitle">Join E-Learning Platform</div>
+    <form class="signup-form" (ngSubmit)="signup()">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="name"
+        name="name"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <select [(ngModel)]="role" name="role" required>
+        <option value="STUDENT">Student</option>
+        <option value="INSTRUCTOR">Instructor</option>
+      </select>
+
+      <button class="btn btn-signup" type="submit">Sign Up</button>
+      <button class="btn btn-login" type="button" (click)="goToLogin()">
+        Back to Login
+      </button>
+    </form>
+  </div>
+</div>
